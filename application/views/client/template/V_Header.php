@@ -36,6 +36,20 @@
       background-color: white;
       color: #44b89d !important;
     }
+
+    .truncate {
+      width: 110px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* .truncate-book-category {
+      width: 300px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    } */
   </style>
 
 </head>
@@ -67,9 +81,9 @@
                 <a class="nav-link pl-lg-0 dropdown-toggle" data-toggle="dropdown" href="categories.html">Our Categories</a>
                 <div class="dropdown-menu">
                   <?php
-                    foreach ($book_types as $key => $type) {
+                  foreach ($book_types as $key => $type) {
                   ?>
-                  <a class="dropdown-item" href="<?= base_url()?>/user/book-categories/<?= $type["book_type_id"] ?>"><?= $type["book_type_name"] ?></a>
+                    <a class="dropdown-item" href="<?= base_url() ?>/user/book-categories/<?= $type["book_type_id"] ?>"><?= $type["book_type_name"] ?></a>
                   <?php } ?>
                 </div>
               </div>
@@ -80,7 +94,7 @@
                 if ($user_login) {
                 ?>
                   <i class="fa fa-user"></i>
-                  <?= $user_login[0]['username']?>
+                  <?= $user_login[0]['username'] ?>
                 <?php } else { ?>
                   <i class="fa fa-sign-in"></i>
                   Sign In

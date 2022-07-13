@@ -66,23 +66,23 @@ $route["about"] = "C_Client/about";
 // admin routes
 $route["admin"] = "C_Admin";
 
-$route["admin/user-role"] = "C_Admin/user_role";
-$route["admin/user-role/create"] = "C_Admin/create_or_edit_user_role";
-$route["admin/user-role/update/(:any)"] = "C_Admin/create_or_edit_user_role/$1";
-$route["admin/user-role/delete/(:any)"] = "C_Admin/delete_user_role/$1";
+$route["admin/user-role"] = "C_UserRole/user_role";
+$route["admin/user-role/create"] = "C_UserRole/create_or_edit_user_role";
+$route["admin/user-role/update/(:any)"] = "C_UserRole/create_or_edit_user_role/$1";
+$route["admin/user-role/delete/(:any)"] = "C_UserRole/delete_user_role/$1";
 
-$route["admin/user"] = "C_Admin/user";
-$route["admin/user/create"] = "C_Admin/create_or_edit_user";
-$route["admin/user/update/(:any)"] = "C_Admin/create_or_edit_user/$1";
-$route["admin/user/delete/(:any)"] = "C_Admin/delete_user/$1";
-$route["admin/user/detail/(:any)"] = "C_Admin/detail_user/$1";
+$route["admin/user"] = "C_User/user";
+$route["admin/user/create"] = "C_User/create_or_edit_user";
+$route["admin/user/update/(:any)"] = "C_User/create_or_edit_user/$1";
+$route["admin/user/delete/(:any)"] = "C_User/delete_user/$1";
+$route["admin/user/detail/(:any)"] = "C_User/detail_user/$1";
 
-$route["admin/book-category"] = "C_Admin/book_category";
-$route["admin/book-category/create"] = "C_Admin/create_or_edit_book_cat";
-$route["admin/book-category/update/(:any)"] = "C_Admin/create_or_edit_book_cat/$1";
-$route["admin/book-category/delete/(:any)"] = "C_Admin/delete_book_cat/$1";
+$route["admin/book-category"] = "C_BookType/book_category";
+$route["admin/book-category/create"] = "C_BookType/create_or_edit_book_cat";
+$route["admin/book-category/update/(:any)"] = "C_BookType/create_or_edit_book_cat/$1";
+$route["admin/book-category/delete/(:any)"] = "C_BookType/delete_book_cat/$1";
 
-$route["admin/book"] = "C_Admin/book";
-$route["admin/book/create"] = "C_Admin/create_or_edit_book";
-$route["admin/book/update/(:any)"] = "C_Admin/create_or_edit_book/$1";
-$route["admin/book/delete/(:any)"] = "C_Admin/delete_book/$1";
+$route["admin/book"] = "C_Book/book";
+$route["admin/book/create"] = "C_Book/create_or_edit_book";
+$route["admin/book/update/(:any)"] = "C_Book/create_or_edit_book/$1";
+$route["admin/book/delete/(:any)"] = "C_Book/delete_book/$1";
