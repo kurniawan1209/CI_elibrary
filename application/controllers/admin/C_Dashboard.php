@@ -22,7 +22,7 @@ class C_Dashboard extends CI_Controller {
 
 		if(empty($this->session->userdata("user_id"))){
 			redirect("login");
-		}
+		} 
 	}
 
     function get_detail_user($user_id){
