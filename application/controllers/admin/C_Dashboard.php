@@ -9,6 +9,7 @@ class C_Dashboard extends CI_Controller {
 		$this->load->helper("url");
         $this->load->model("M_Index");
         $this->load->model("M_User");
+
         $this->load->model("M_Book");
         $this->load->database();
     }
@@ -69,5 +70,4 @@ class C_Dashboard extends CI_Controller {
         $user_activity = explode(",", $user_activity);
         return json_encode($user_activity);
     }
-
 }
