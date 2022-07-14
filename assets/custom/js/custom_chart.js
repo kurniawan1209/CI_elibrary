@@ -1,5 +1,4 @@
 // Start Graphics Chart
-
 var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
 var areaChartData = {
@@ -46,6 +45,30 @@ new Chart(areaChartCanvas, {
 
 // End Graphics Chart
 
+// Start Bar Chart
+
+var barChartCanvas = $('#barChart').get(0).getContext('2d')
+var barChartData = $.extend(true, {}, areaChartData)
+var temp0 = areaChartData.datasets[0]
+var temp1 = areaChartData.datasets[1]
+barChartData.datasets[0] = temp1
+barChartData.datasets[1] = temp0
+
+var barChartOptions = {
+	responsive: true,
+	maintainAspectRatio: false,
+	datasetFill: false
+}
+
+new Chart(barChartCanvas, {
+	type: 'bar',
+	data: barChartData,
+	options: barChartOptions
+})
+
+// End Bar Chart
+
+
 // Start Donut Chart
 
 var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
@@ -83,26 +106,3 @@ new Chart(donutChartCanvas, {
 })
 
 // Start Donut Chart
-
-// Start Bar Chart
-
-var barChartCanvas = $('#barChart').get(0).getContext('2d')
-var barChartData = $.extend(true, {}, areaChartData)
-var temp0 = areaChartData.datasets[0]
-var temp1 = areaChartData.datasets[1]
-barChartData.datasets[0] = temp1
-barChartData.datasets[1] = temp0
-
-var barChartOptions = {
-	responsive: true,
-	maintainAspectRatio: false,
-	datasetFill: false
-}
-
-new Chart(barChartCanvas, {
-	type: 'bar',
-	data: barChartData,
-	options: barChartOptions
-})
-
-// End Bar Chart

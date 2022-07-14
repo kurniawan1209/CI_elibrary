@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_BookCategory extends CI_Model {
 
     public function get_all_type_book(){
-        $sql = "SELECT * FROM tb_book_types"   ;
+        $sql = "SELECT tbt.*, replace(lower(tbt.book_type_name), ' ', '-') book_type_slug
+                  FROM tb_book_types tbt";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

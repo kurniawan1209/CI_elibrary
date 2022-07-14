@@ -105,17 +105,15 @@
                         <h5 class="card-title">Monthly Report</h5>
                     </div>
                     <div class="card-body">
-                        <div class="card card-success">
-                            <div class="chart">
-                                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                            </div>
+                        <div class="chart">
+                            <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-        
+
         <br>
 
         <!-- Start Top 10 Book -->

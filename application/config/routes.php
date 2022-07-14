@@ -60,8 +60,8 @@ $route["logout"] = "C_Index/logout";
 // user routes
 $route["user"] = "C_Client";
 $route["user/book-categories/(:any)"] = "C_Client/user_book_categories/$1";
-
-$route["about"] = "C_Client/about";
+$route["user/my-collections"] = "C_Client/user_collections";
+$route["user/set-borrowed-book"] = "C_Client/set_borrowed_book";
 
 // admin routes
 $route["admin"] = "admin/C_Dashboard";

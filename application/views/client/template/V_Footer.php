@@ -86,6 +86,9 @@
     </div>
   </footer>
   <!-- footer section -->
+  <script>
+    var baseurl = "<?= base_url() ?>";
+  </script>
 
   <!-- jQuery -->
   <script src="<?= base_url() ?>assets/bostorek/js/jquery-3.4.1.min.js"></script>
@@ -94,6 +97,8 @@
   <!-- custom js -->
   <script src="<?= base_url() ?>assets/bostorek/js/custom.js"></script>
   <!-- End Google Map -->
+  <script src="<?= base_url() ?>assets/custom/js/bs4pop.js"></script>
+  <script src="<?= base_url() ?>assets/custom/js/custom_client.js"></script>
 
 </body>
 

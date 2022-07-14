@@ -43,6 +43,7 @@ class M_Client extends CI_Model {
     public function get_recommended_book_type_by_activity(){
         $sql = "SELECT tbt.book_type_id, tbt.book_type_name,
                        tbt.book_type_logo, concat(substr(tbt.book_type_description,1,100),'....')  book_type_description,
+                       replace(lower(tbt.book_type_name), ' ', '-') book_type_slug,
                        count(tuba.activity_id) total_activity
                   FROM tb_user_book_activities tuba,
                        tb_books tb,
@@ -87,6 +88,37 @@ class M_Client extends CI_Model {
         $sql = "SELECT count(*) activity FROM tb_user_book_activities WHERE user_id = $user_id";
         $query = $this->db->query($sql);
         return $query->result_array();
+    }
+
+    public function get_all_book_by_slug($slug, $user_id){
+        $sql = "SELECT tb.*, tbt.book_type_name
+                  FROM tb_books tb, tb_book_types tbt
+                 WHERE tb.book_type_id = tbt.book_type_id 
+                   AND tb.book_id NOT IN (SELECT DISTINCT book_id 
+                                            FROM tb_user_book_activities
+                                           WHERE user_id = $user_id)
+                   AND replace(lower(tbt.book_type_name), ' ', '-') = '$slug'";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function get_all_collections($user_id){
+        $sql = "SELECT tb.*, tbt.book_type_name, tuba.end_date
+                  FROM tb_books tb, tb_user_book_activities tuba,
+                       tb_book_types tbt
+                 WHERE tb.book_id = tuba.book_id
+                   AND tbt.book_type_id = tb.book_type_id
+                   AND tuba.end_date >= current_date
+                   AND tuba.user_id = $user_id";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function insert_user_book_activities($user_id, $book_id){
+        $sql = "INSERT 
+                  INTO tb_user_book_activities (user_id, book_id, start_date, end_date)
+                     VALUES ($user_id, $book_id, current_date, current_date + 7)";
+        $this->db->query($sql);
     }
 
 }
