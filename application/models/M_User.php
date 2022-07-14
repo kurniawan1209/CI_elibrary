@@ -64,6 +64,23 @@ class M_User extends CI_Model {
                  WHERE user_id = $user_id";
         $this->db->query($sql);
     }
+
+    public function get_user_count(){
+        $sql = "SELECT count(*) total_user
+                  FROM tb_users
+                 WHERE active_flag = 'Y'";
+                 
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function get_user_activity_by_date($date){
+        $sql = "SELECT count(distinct user_id) total
+                  FROM tb_user_book_activities
+                  WHERE creation_date = '$date'";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }
 
 ?>

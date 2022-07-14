@@ -70,7 +70,10 @@ if ($book_source == "user_list") {
                                         <div class="card <?= $margin ?> mt-2" style="border-radius: 10px;">
                                             <img class="card-img-top" src="<?= base_url() ?>assets/img/book/<?= $val["cover"] ?>" alt="Card image" style="width: 150px; height: 200px; border-radius: 10px;">
                                             <div class="card-body">
-                                                <h4 class="card-title truncate"><?= $val["book_name"] ?></h4>
+                                                <p class="card-title truncate"><?= $val["book_name"] ?></p>
+                                                <button class="btn btn-sm btn-primary float-right btn-borrow-book" type="button" value="<?= $val["book_id"] ?>">
+                                                    Borrow
+                                                </button>
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -112,7 +115,7 @@ if ($book_source == "user_list") {
                     <div class="col-sm-6 col-md-4 ">
                         <div class="box ">
                             <div class="img-box">
-                                <a href="<?= base_url() ?>user/book-categories/<?= $category["book_type_id"] ?>">
+                                <a href="<?= base_url() ?>user/book-categories/<?= $category["book_type_slug"] ?>">
                                     <img src="<?= base_url() ?>assets/img/book_type_logo/<?= $category["book_type_logo"] ?>" alt="">
                                 </a>
                             </div>

@@ -60,29 +60,30 @@ $route["logout"] = "C_Index/logout";
 // user routes
 $route["user"] = "C_Client";
 $route["user/book-categories/(:any)"] = "C_Client/user_book_categories/$1";
-
-$route["about"] = "C_Client/about";
+$route["user/my-collections"] = "C_Client/user_collections";
+$route["user/set-borrowed-book"] = "C_Client/set_borrowed_book";
 
 // admin routes
-$route["admin"] = "C_Admin";
+$route["admin"] = "admin/C_Dashboard";
+$route["admin/dashboard/get-user-activity"] = "admin/C_Dashboard/get_user_activity";
 
-$route["admin/user-role"] = "C_UserRole/user_role";
-$route["admin/user-role/create"] = "C_UserRole/create_or_edit_user_role";
-$route["admin/user-role/update/(:any)"] = "C_UserRole/create_or_edit_user_role/$1";
-$route["admin/user-role/delete/(:any)"] = "C_UserRole/delete_user_role/$1";
+$route["admin/user-role"] = "admin/C_UserRole/user_role";
+$route["admin/user-role/create"] = "admin/C_UserRole/create_or_edit_user_role";
+$route["admin/user-role/update/(:any)"] = "admin/C_UserRole/create_or_edit_user_role/$1";
+$route["admin/user-role/delete/(:any)"] = "admin/C_UserRole/delete_user_role/$1";
 
-$route["admin/user"] = "C_User/user";
-$route["admin/user/create"] = "C_User/create_or_edit_user";
-$route["admin/user/update/(:any)"] = "C_User/create_or_edit_user/$1";
-$route["admin/user/delete/(:any)"] = "C_User/delete_user/$1";
-$route["admin/user/detail/(:any)"] = "C_User/detail_user/$1";
+$route["admin/user"] = "admin/C_User/user";
+$route["admin/user/create"] = "admin/C_User/create_or_edit_user";
+$route["admin/user/update/(:any)"] = "admin/C_User/create_or_edit_user/$1";
+$route["admin/user/delete/(:any)"] = "admin/C_User/delete_user/$1";
+$route["admin/user/detail/(:any)"] = "admin/C_User/detail_user/$1";
 
-$route["admin/book-category"] = "C_BookType/book_category";
-$route["admin/book-category/create"] = "C_BookType/create_or_edit_book_cat";
-$route["admin/book-category/update/(:any)"] = "C_BookType/create_or_edit_book_cat/$1";
-$route["admin/book-category/delete/(:any)"] = "C_BookType/delete_book_cat/$1";
+$route["admin/book-category"] = "admin/C_BookType/book_category";
+$route["admin/book-category/create"] = "admin/C_BookType/create_or_edit_book_cat";
+$route["admin/book-category/update/(:any)"] = "admin/C_BookType/create_or_edit_book_cat/$1";
+$route["admin/book-category/delete/(:any)"] = "admin/C_BookType/delete_book_cat/$1";
 
-$route["admin/book"] = "C_Book/book";
-$route["admin/book/create"] = "C_Book/create_or_edit_book";
-$route["admin/book/update/(:any)"] = "C_Book/create_or_edit_book/$1";
-$route["admin/book/delete/(:any)"] = "C_Book/delete_book/$1";
+$route["admin/book"] = "admin/C_Book/book";
+$route["admin/book/create"] = "admin/C_Book/create_or_edit_book";
+$route["admin/book/update/(:any)"] = "admin/C_Book/create_or_edit_book/$1";
+$route["admin/book/delete/(:any)"] = "admin/C_Book/delete_book/$1";

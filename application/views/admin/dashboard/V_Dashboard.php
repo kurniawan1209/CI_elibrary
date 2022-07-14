@@ -13,7 +13,7 @@
                                     <i class="fa fa-user-o fa-4x fa-primary" style="color: #007bff;"></i>
                                 </div>
                                 <div class="media-body text-right">
-                                    <h3>278</h3>
+                                    <h3><?= $total_users ?></h3>
                                     <span>Total Users</span>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                     <i class="fa fa-book fa-4x fa-primary" style="color: #007bff;"></i>
                                 </div>
                                 <div class="media-body text-right">
-                                    <h3>898</h3>
+                                    <h3><?= $total_books ?></h3>
                                     <span>Total Books</span>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                     <i class="fa fa-line-chart fa-4x fa-primary" style="color: #007bff;"></i>
                                 </div>
                                 <div class="media-body text-right">
-                                    <h3>88 %</h3>
+                                    <h3><?= $traffic ?> %</h3>
                                     <span>Traffic</span>
                                 </div>
                             </div>
@@ -105,17 +105,15 @@
                         <h5 class="card-title">Monthly Report</h5>
                     </div>
                     <div class="card-body">
-                        <div class="card card-success">
-                            <div class="chart">
-                                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                            </div>
+                        <div class="chart">
+                            <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-        
+
         <br>
 
         <!-- Start Top 10 Book -->

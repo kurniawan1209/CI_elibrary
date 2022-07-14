@@ -1,5 +1,9 @@
 </div>
 
+<script>
+    const base_url = "<?= base_url() ?>";
+</script>
+
 <script src="<?= base_url() ?>assets/sidebar-03/js/jquery.min.js"></script>
 <script src="<?= base_url() ?>assets/sidebar-03/js/popper.js"></script>
 <script src="<?= base_url() ?>assets/sidebar-03/js/bootstrap.min.js"></script>

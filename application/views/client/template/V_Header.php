@@ -24,6 +24,7 @@
   <link href="<?= base_url() ?>assets/bostorek/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="<?= base_url() ?>assets/bostorek/css/responsive.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>assets/custom/css/bs4pop.css" rel="stylesheet" />
 
   <style>
     .btn-custom {
@@ -44,12 +45,11 @@
       text-overflow: ellipsis;
     }
 
-    /* .truncate-book-category {
-      width: 300px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    } */
+    .dropdown-book-types {
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
   </style>
 
 </head>
@@ -79,14 +79,17 @@
             <li class="nav-item">
               <div class="btn-group">
                 <a class="nav-link pl-lg-0 dropdown-toggle" data-toggle="dropdown" href="categories.html">Our Categories</a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu dropdown-book-types">
                   <?php
                   foreach ($book_types as $key => $type) {
                   ?>
-                    <a class="dropdown-item" href="<?= base_url() ?>/user/book-categories/<?= $type["book_type_id"] ?>"><?= $type["book_type_name"] ?></a>
+                    <a class="dropdown-item" href="<?= base_url() ?>user/book-categories/<?= $type["book_type_slug"] ?>"><?= $type["book_type_name"] ?></a>
                   <?php } ?>
                 </div>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pl-lg-0" href="<?= base_url() ?>user/my-collections">My Collections <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <button class="nav-link btn btn-success btn-sm btn-custom">
@@ -101,6 +104,14 @@
                 <?php } ?>
               </button>
             </li>
+            <?php if($user_login){?>
+            <li class="nav-item">
+              <a class="nav-link btn btn-success btn-sm btn-custom ml-3" href="<?= base_url()?>logout">
+              <i class="fa fa-sign-out"></i>
+                  Sign Out
+              </a>
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </nav>

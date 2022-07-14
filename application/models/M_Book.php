@@ -52,6 +52,23 @@ class M_Book extends CI_Model {
         $this->db->query($sql);
     }
 
+    public function get_book_count(){
+        $sql = "SELECT count(*) total_book
+                  FROM tb_books
+                 WHERE active_flag = 'Y'";
+                 
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function get_book_activity_by_date($date){
+        $sql = "SELECT count(distinct book_id) total
+                  FROM tb_user_book_activities
+                  WHERE creation_date = '$date'";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
 } 
 
 ?>

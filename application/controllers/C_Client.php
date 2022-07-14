@@ -35,6 +35,8 @@ class C_Client extends CI_Controller {
         /**
          * Function to load user view
          */
+        $data["book_types"] = $this->M_BookCategory->get_all_type_book();
+
         $this->load->view("client/template/V_Header", $data);
         $this->load->view("client/".$content, $data);
         $this->load->view("client/template/V_Footer", $data);
@@ -93,11 +95,51 @@ class C_Client extends CI_Controller {
         $this->load_user_view("V_Index", $data);
     }  
 
-    public function user_book_categories($book_type_id){
+    public function user_book_categories($slug){
         $this->check_session();
-        $data["user_login"] = $this->get_detail_user($this->session->userdata("user_id"));
+
+        $user_id = $this->session->userdata("user_id");
+        $data["user_login"] = $this->get_detail_user($user_id);
+
+        $data["data_source"] = "book_categories";
+
+        $books = $this->M_Client->get_all_book_by_slug($slug, $user_id);
+        $data["books"] = array();
+
+        $index = 0;
+        foreach ($books as $key => $book) {
+            $index++;
+            $curr_index = ceil($index/5);
+            $data["books"][$curr_index][] = $book;
+        }
 
         $this->load_user_view("V_BookCategories", $data);
+    }
+
+    public function user_collections(){
+        $this->check_session();
+        $user_id = $this->session->userdata("user_id");
+        $data["user_login"] = $this->get_detail_user($user_id);
+
+        $data["data_source"] = "my_collections";
+
+        $books = $this->M_Client->get_all_collections($user_id);
+        $data["books"] = array();
+
+        $index = 0;
+        foreach ($books as $key => $book) {
+            $index++;
+            $curr_index = ceil($index/5);
+            $data["books"][$curr_index][] = $book;
+        }
+
+        $this->load_user_view("V_BookCategories", $data);
+    }
+
+    public function set_borrowed_book(){
+        $book_id = $_POST["book_id"];
+        $this->M_Client->insert_user_book_activities($this->session->userdata("user_id"), $book_id);
+        echo json_encode(1);
     }
 
 }
